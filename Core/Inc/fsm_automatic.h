@@ -12,4 +12,6 @@
 #include "input_reading.h"
 #include "traffic.h"
 
+void fsm_automatic_run();
+
 #endif /* INC_FSM_AUTOMATIC_H_ */

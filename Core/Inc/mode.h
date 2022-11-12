@@ -12,6 +12,7 @@
 #include "global.h"
 #include "input_reading.h"
 #include "fsm_automatic.h"
+#include "traffic.h"
 
 void fsm_mode();
 

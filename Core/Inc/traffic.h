@@ -11,7 +11,8 @@
 #include "global.h"
 #include "main.h"
 
-void setColor1(int color);
-void setColor2(int color);
+void setColor1(int);
+void setColor2(int);
+void blinkLed1(int);
 
 #endif /* INC_TRAFFIC_H_ */

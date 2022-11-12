@@ -20,12 +20,6 @@ void fsm_mode() {
 				setTimer1(2000);
 				setTimer3(200);
 			}
-//			if (is_button_pressed_1s(0)) {
-//				setColor1(AUTO_RED);
-//				mode = 2;
-//				tmp = redDuration;
-//				setTimer1(500);
-//			}
 			break;
 		case 2:
 			if (is_button_pressed_1s(0)) {

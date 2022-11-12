@@ -27,23 +27,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  11 .ARM.attributes 00000029  00000000  00000000  00020040  2**0
                   CONTENTS, READONLY
- 12 .debug_info   00008cd2  00000000  00000000  00020069  2**0
+ 12 .debug_info   00008c61  00000000  00000000  00020069  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 13 .debug_abbrev 00001c69  00000000  00000000  00028d3b  2**0
+ 13 .debug_abbrev 00001c40  00000000  00000000  00028cca  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_aranges 00000a80  00000000  00000000  0002a9a8  2**3
+ 14 .debug_aranges 00000a80  00000000  00000000  0002a910  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_ranges 00000950  00000000  00000000  0002b428  2**3
+ 15 .debug_ranges 00000950  00000000  00000000  0002b390  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_macro  00017267  00000000  00000000  0002bd78  2**0
+ 16 .debug_macro  00017267  00000000  00000000  0002bce0  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   0000ccd9  00000000  00000000  00042fdf  2**0
+ 17 .debug_line   0000ccd9  00000000  00000000  00042f47  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    000822e3  00000000  00000000  0004fcb8  2**0
+ 18 .debug_str    000822e3  00000000  00000000  0004fc20  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000050  00000000  00000000  000d1f9b  2**0
+ 19 .comment      00000050  00000000  00000000  000d1f03  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  000029ec  00000000  00000000  000d1fec  2**2
+ 20 .debug_frame  000029ec  00000000  00000000  000d1f54  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -2205,11 +2205,7 @@ void fsm_mode() {
 				setTimer3(200);
  8001292:	20c8      	movs	r0, #200	; 0xc8
  8001294:	f000 fa62 	bl	800175c <setTimer3>
-//				setColor1(AUTO_RED);
-//				mode = 2;
-//				tmp = redDuration;
-//				setTimer1(500);
-//			}
+			}
 			break;
  8001298:	e1f5      	b.n	8001686 <fsm_mode+0x45a>
 		case 2:
