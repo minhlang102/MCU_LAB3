@@ -11,28 +11,38 @@ void fsm_mode() {
 	switch (mode) {
 		case 1:
 			fsm_automatic_run();
-			if (check_button_flag(0)) {
-				mode = 2;
-				tmp = redDuration;
-				counter1 = redDuration;
-				counter2 = mode;
-				setColor1(AUTO_RED);
-				setTimer1(2000);
-				setTimer3(200);
+			if (is_button_pressed_1s(0)) {
+				if (timer1_flag == 1) {
+					mode = 2;
+					tmp = redDuration;
+					setColor1(AUTO_RED);
+					setTimer1(1000);
+				}
+			} else {
+				if (check_button_flag(0)) {
+					mode = 2;
+					tmp = redDuration;
+					counter1 = redDuration;
+					counter2 = mode;
+					setColor1(AUTO_RED);
+					disable2();
+					setTimer1(500);
+					setTimer3(200);
+				}
 			}
 			break;
 		case 2:
 			if (is_button_pressed_1s(0)) {
 				if (timer1_flag == 1) {
-					setColor1(AUTO_YELLOW);
 					mode = 3;
 					tmp = yellowDuration;
-					setTimer1(500);
+					setColor1(AUTO_YELLOW);
+					setTimer1(1000);
 				}
 			} else {
 				if (timer1_flag == 1) {
 					blinkLed1(AUTO_RED);
-					setTimer1(2000);
+					setTimer1(500);
 				}
 				if (check_button_flag(0)) {
 					counter1 = yellowDuration;
@@ -40,7 +50,7 @@ void fsm_mode() {
 					mode = 3;
 					tmp = yellowDuration;
 					setColor1(AUTO_YELLOW);
-					setTimer1(2000);
+					setTimer1(500);
 				}
 			}
 			if (is_button_pressed_1s(1)) {
@@ -76,15 +86,15 @@ void fsm_mode() {
 		case 3:
 			if (is_button_pressed_1s(0)) {
 				if (timer1_flag == 1) {
-					setColor1(AUTO_GREEN);
 					mode = 4;
 					tmp = greenDuration;
-					setTimer1(500);
+					setColor1(AUTO_GREEN);
+					setTimer1(1000);
 				}
 			} else {
 				if (timer1_flag == 1) {
 					blinkLed1(AUTO_YELLOW);
-					setTimer1(2000);
+					setTimer1(500);
 				}
 				if (check_button_flag(0)) {
 					counter1 = greenDuration;
@@ -92,7 +102,7 @@ void fsm_mode() {
 					mode = 4;
 					tmp = greenDuration;
 					setColor1(AUTO_GREEN);
-					setTimer1(2000);
+					setTimer1(500);
 				}
 			}
 			if (is_button_pressed_1s(1)) {
@@ -127,15 +137,15 @@ void fsm_mode() {
 		case 4:
 			if (is_button_pressed_1s(0)) {
 				if (timer1_flag == 1) {
-					setColor1(AUTO_RED);
 					mode = 2;
 					tmp = redDuration;
-					setTimer1(500);
+					setColor1(AUTO_RED);
+					setTimer1(1000);
 				}
 			} else {
 				if (timer1_flag == 1) {
 					blinkLed1(AUTO_GREEN);
-					setTimer1(2000);
+					setTimer1(500);
 				}
 				if (check_button_flag(0)) {
 					counter1 = redDuration;
@@ -143,6 +153,7 @@ void fsm_mode() {
 					mode = 1;
 					tmp = redDuration;
 					setColor1(INIT);
+					setTimer1(500);
 					status = INIT;
 				}
 			}
@@ -163,14 +174,14 @@ void fsm_mode() {
 						tmp++;
 					}
 				}
-				if (check_button_flag(2)) {
-					greenDuration = tmp;
-					if (redDuration != yellowDuration + greenDuration) {
-						redDuration = yellowDuration + greenDuration;
-						if (redDuration > 99) {
-							redDuration = 99;
-							yellowDuration = redDuration - greenDuration;
-						}
+			}
+			if (check_button_flag(2)) {
+				greenDuration = tmp;
+				if (redDuration != yellowDuration + greenDuration) {
+					redDuration = yellowDuration + greenDuration;
+					if (redDuration > 99) {
+						redDuration = 99;
+						yellowDuration = redDuration - greenDuration;
 					}
 				}
 			}

@@ -14,5 +14,7 @@
 void setColor1(int);
 void setColor2(int);
 void blinkLed1(int);
+void disable1();
+void disable2();
 
 #endif /* INC_TRAFFIC_H_ */

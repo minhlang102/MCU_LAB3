@@ -75,3 +75,16 @@ void blinkLed1(int color) {
 	}
 }
 
+void disable1() {
+	HAL_GPIO_WritePin(GPIOA, LED_RED1_Pin, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(GPIOA, LED_YELLOW1_Pin, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(GPIOA, LED_GREEN1_Pin, GPIO_PIN_SET);
+}
+
+void disable2() {
+	HAL_GPIO_WritePin(GPIOA, LED_RED2_Pin, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(GPIOA, LED_YELLOW2_Pin, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(GPIOA, LED_GREEN2_Pin, GPIO_PIN_SET);
+}
+
+
